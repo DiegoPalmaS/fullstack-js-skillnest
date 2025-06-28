@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Imágenes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+
+<div class="gallery">
+  <img src="./assets/img/1.jpg" class="thumbnail" data-index="0" alt="Imagen 1">
+  <img src="./assets/img/2.jpg" class="thumbnail" data-index="1" alt="Imagen 2">
+  <img src="./assets/img/3.jpg" class="thumbnail" data-index="2" alt="Imagen 3">
+  <img src="./assets/img/4.jpg" class="thumbnail" data-index="3" alt="Imagen 4">
+  <img src="./assets/img/5.jpg" class="thumbnail" data-index="4" alt="Imagen 5">
+  <img src="./assets/img/6.jpg" class="thumbnail" data-index="5" alt="Imagen 6">
+  <img src="./assets/img/7.jpg" class="thumbnail" data-index="6" alt="Imagen 7">
+  <img src="./assets/img/8.jpg" class="thumbnail" data-index="7" alt="Imagen 8">
+  <img src="./assets/img/9.jpg" class="thumbnail" data-index="8" alt="Imagen 9">
+  <img src="./assets/img/10.jpg" class="thumbnail" data-index="9" alt="Imagen 10">
+  <img src="./assets/img/11.jpg" class="thumbnail" data-index="10" alt="Imagen 11">
+  <img src="./assets/img/12.jpg" class="thumbnail" data-index="11" alt="Imagen 12">
+</div>
+
+  <div id="modal">
+    <div class="nodal-container">
+        <span id="close">&times;</span>
+        <img id="modal-image" src="" alt="Imagen grande">
+    </div>
+    <div class="controls">
+      <button id="prev">Anterior</button>
+      <button id="next">Siguiente</button>
+    </div>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+</html>
