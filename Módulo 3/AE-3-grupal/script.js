@@ -69,6 +69,7 @@ function eliminarClientePorId(lista,id){//función para eliminar un cliente por 
         if (id === lista[i].id){ // si el id ingresado, coincide con el id de un cliente
             test = id // el valor de test cambia al valor del id
             index = i //el valor de index, cambia por el coeficiente de posición del cliente
+            break; //si ya encontró el id, terminar el ciclo
         }
     }
     // si test tiene valor de -2, significa que el id no fue encontrado
@@ -83,3 +84,86 @@ function eliminarClientePorId(lista,id){//función para eliminar un cliente por 
 //7.Modificar los datos de un cliente:
 //Crear una función que modifique los datos de un cliente existente en el arreglo, por ejemplo, cambiar el teléfono o el estado de activo de false a true
 
+function modificarCliente(lista, id, nuevoTelefono, nuevoActivo) {
+    let clienteEncontrado = false; // Bandera para verificar si se encontró el cliente
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[i].id === id) { // Si el ID coincide con el del cliente
+            lista[i].telefono = nuevoTelefono; // Actualizar el teléfono
+            lista[i].activo = nuevoActivo; // Actualizar el estado activo
+            clienteEncontrado = true; // Marcar que se encontró el cliente
+            console.log(`Cliente con ID: ${id} modificado!`);
+            break; // Salir del bucle una vez encontrado
+        }
+    }
+    if (!clienteEncontrado) {
+        console.log(`Cliente con ID: ${id} no encontrado.`);
+    }
+}
+
+//8.onsultar los clientes inactivos:
+//Usar el método filter() para crear un nuevo arreglo con los clientes que tienen el campo activo igual a false.
+function clientesInactivos(lista){
+    const inactivos = lista.filter(cliente => !cliente.activo);
+    console.log("Clientes inactivos: ");
+    console.log(inactivos);
+}
+
+//9. Álgebra con arreglos y objetos:
+//Crear una función que reciba dos arreglos de clientes (por ejemplo, uno con clientes nuevos y otro con clientes existentes) y realice una unión de ambos, agregando los nuevos clientes al arreglo original.
+//Crear otra función para filtrar clientes duplicados (con el mismo id), mostrando solo los clientes únicos.
+
+//unir 2 listas de clientes
+function unirListasDeClientes(lista1,lista2){
+    const nuevaLista =[...lista1];
+    lista2.forEach(cliente =>{
+        nuevaLista.push(cliente)
+    })
+    return nuevaLista;
+}
+
+//función para filtrar clientes únicos
+function filtrarClientesUnicos(arr) {
+    const mapa = new Map();
+    arr.forEach(c => {
+        if (!mapa.has(c.id)) {
+            mapa.set(c.id, c);
+        }
+    });
+    return Array.from(mapa.values());
+}
+
+//Ciclos while, for y forEach:
+//Usar un ciclo while para simular una operación repetitiva en el sistema, por ejemplo, consultar los datos de un cliente hasta que se ingrese un id válido.
+//Usar for o forEach para realizar una consulta masiva de todos los clientes, mostrando los datos solo de aquellos que están activos.
+function buscarClientePorId(arr) {
+    let encontrado = false;
+    while (!encontrado) {
+        const idIngresado = parseInt(prompt("Ingrese el ID del cliente:"));
+        const cliente = arr.find(c => c.id === idIngresado);
+        if (cliente) {
+            console.log(`Cliente encontrado: ${cliente.nombre} ${cliente.apellido}`);
+            encontrado = true;
+        } else {
+            console.log("ID inválido. Intente de nuevo.");
+        }
+    }
+}
+
+//11.Combinación de ciclos con if/else:
+function mostrarClientesActivos(arr) {
+    arr.forEach(c => {
+        if (c.activo) {
+            console.log(`Cliente activo: ${c.nombre} ${c.apellido}`);
+        }
+    });
+}
+
+function mostrarEstadoClientes(arr) {
+    arr.forEach(c => {
+        if (c.activo) {
+            console.log(`${c.nombre} ${c.apellido} está activo.`);
+        } else {
+            console.log(`${c.nombre} ${c.apellido} está inactivo.`);
+        }
+    });
+}
